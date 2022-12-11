@@ -75,8 +75,7 @@
     background-color: var(--el-color-primary-light-9);
     color: var(--el-text-color-primary);
     text-align: center;
-
-    height: 150px;
+    height: calc(100vh - 60px);
   }
 }
 </style>

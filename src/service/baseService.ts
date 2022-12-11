@@ -70,6 +70,7 @@ export default {
       evt.initEvent("click", false, false);
       a.download = filename || new Date().getTime().toString();
       // 获取当前文件的一个内存URL
+      // @ts-ignore
       a.href = URL.createObjectURL(res);
       // 事件派发
       a.dispatchEvent(evt);

@@ -23,6 +23,7 @@ export function useTodos() {
 
   let allDone = computed({
     get: function() {
+      // @ts-ignore
       return this.active === 0
     },
     set: function(val){

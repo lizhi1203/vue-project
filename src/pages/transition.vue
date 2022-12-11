@@ -31,14 +31,16 @@
     function change() {
         todos.value.push({title: 'ee', done: true})
     }
-    function beforeEnter(el) {
+    function beforeEnter(el: HTMLElement) {
         const dom = animate.el;
-        const rect = dom.getBoundingClientRect();
+        if (!dom) return;
+        // @ts-ignore
+        const rect = dom?.getBoundingClientRect() as DOMRect;
         const x = window.innerWidth - rect.left + 60;
         const y = rect.top - 10;
         el.style.transform = `translate(${-x}px, ${y}px)`;
     }
-
+    // @ts-ignore
     function enter(el: HTMLElement, done) {
         document.body.offsetHeight;
         el.style.transform = 'translate(0, 0)';
@@ -52,6 +54,7 @@
 
     function removeTodo(e: Event) {
         animate.show = true;
+        // @ts-ignore
         animate.el = e.target as HTMLElement;
     }
 </script>
