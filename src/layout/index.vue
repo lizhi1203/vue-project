@@ -31,7 +31,7 @@
       <el-container>
         <el-aside width="200px">
           <div>
-            <router-link to="/">首页</router-link>
+            <router-link to="/">图表</router-link>
           </div>
           <div>
             <router-link to="/about">关于</router-link>
@@ -46,13 +46,15 @@
     </el-container>
   </div>
 </template>
-
+<script lang="ts" setup>
+</script>
 <style lang="scss" scoped>
 .common-layout {
-  .el-header,
+  .el-header {
+    padding: 0;
+  }
   .el-footer,
-  .el-main,
-  .el-aside {
+  .el-main {
     display: flex;
     justify-content: center;
     align-items: center;

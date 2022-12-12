@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router'
-
+import Layout from '@/layout/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/',
+    path: '/index',
     name: 'Index',
     component: () => import('@/pages/index.vue'),
     meta: {
@@ -52,14 +52,27 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/element',
-    name: 'Element',
-    component: () => import('@/pages/element.vue'),
+    path: '/',
+    name: 'Echart',
+    component: Layout,
     meta: {
-      title: 'element Plus',
+      title: 'Echart',
       keepAlive: true,
       requireAuth: true
-    }
+    },
+    redirect: '/echart',
+    children: [
+      {
+        path: '/echart',
+        name: 'Echart',
+        component: () => import('@/pages/echart.vue')
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import('@/pages/about.vue')
+      }
+    ],
   }
 ]
 
